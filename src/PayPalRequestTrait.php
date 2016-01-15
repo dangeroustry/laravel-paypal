@@ -154,7 +154,7 @@ trait PayPalRequestTrait
                 } else {
                     return [
                         'type'      => 'error',
-                        'message'   => trans('paypal::error.paypal_connection_error')
+                        'message'   => (!empty($response['L_SHORTMESSAGE0'])) ? $response['L_SHORTMESSAGE0'] . ' - ' . $response['L_LONGMESSAGE0'] : trans('paypal::error.paypal_connection_error')
                     ];
                 }
             }
